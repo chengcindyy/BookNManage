@@ -27,7 +27,8 @@ app.use('/api', providerRoutes);
 app.use('/api', roleRoutes);
 
 // Production build
-const port = 5001;
+const port = process.env.PORT || 5001;
 app.listen(port, () => {
     console.log(`Server is listening on Port ${port}`);
 });
+
