@@ -12,12 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-app.use(cors());
-
-// app.use(cors({
-//     origin: 'http://yourfrontenddomain.com'
-//   }));
-  
+app.use(cors());  
 app.use(express.json());
 
 // Use routes
@@ -31,4 +26,5 @@ const port = process.env.PORT || 5001;
 app.listen(port, () => {
     console.log(`Server is listening on Port ${port}`);
 });
+
 

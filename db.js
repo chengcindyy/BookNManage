@@ -5,8 +5,9 @@ import { Permission } from './models/Permission.js';
 import { Role } from './models/Role.js';
 
 // Connet to Mongodb
-const url = 'mongodb://localhost:27017/kingfeetDB'; 
-mongoose.connect(url)
+const mongoDBUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/kingfeetDB';
+
+mongoose.connect(mongoDBUri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("Database connected"))
     .catch(err => console.error("Database connection error", err));
 
