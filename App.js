@@ -22,19 +22,17 @@ app.use('/api', providerRoutes);
 app.use('/api', roleRoutes);
 
 // Provide static files for the client app
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
+app.use('/admin', express.static(path.join(__dirname, 'admin/build')));
 
-// Provide static files for the admin app
-app.use('/admin', express.static(path.join(__dirname, '../admin/build')));
-
-// Catch all other requests and return index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+// Catch all admin app requests and return admin index.html
+app.get('/admin*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'admin/build', 'index.html'));
 });
 
-// Catch all other requests and return index.html
-app.get('/admin*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../admin/build', 'index.html'));
+// Catch all client app requests and return client index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
 });
 
 // Production build

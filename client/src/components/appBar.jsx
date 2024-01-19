@@ -43,9 +43,12 @@ function ResponsiveAppBar() {
     } else if (setting === "Profile") {
       navigate('/profile'); 
     } else if (setting === "Dashboard" && !isUser) {
-      window.open("http://localhost:3001/#/dashboard");
+      const adminUrl = process.env.REACT_APP_ADMIN_URL || "http://localhost:5001/admin";
+      window.open(`${adminUrl}/#/dashboard`);
     } 
   };
+  
+  
 
   // check login status
   useEffect(() => {
