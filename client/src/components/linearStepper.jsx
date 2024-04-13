@@ -7,7 +7,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardContainer from './cardContainer';
 import {useNavigate, Link} from 'react-router-dom';
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
+import { v4 as uuidv4 } from 'uuid';
 
 const isLoggedIn = () => {
   const username = localStorage.getItem("username");
@@ -152,7 +153,8 @@ export default function HorizontalLinearStepper({ steps = [] }) {
   const handleSubmit = () => {
     console.log('handleSubmit called');
     const userUid = localStorage.getItem("uid");
-    const userObjectId = new mongoose.Types.ObjectId(userUid);
+    // const userObjectId = new mongoose.Types.ObjectId(userUid);
+    const userObjectId = uuidv4();
   
     const bookingData = {
       user: userObjectId,

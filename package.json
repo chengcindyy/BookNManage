@@ -13,7 +13,7 @@
     "dev": "concurrently \"npm run backend\" \"npm run frontend\" \"npm run admin\""
   },
   "engines": {
-    "node": "21.4.0"
+    "node": ">=18.18.2"
   },  
   "keywords": [],
   "author": "",
