@@ -22,9 +22,8 @@ const settings = ['Profile','Dashboard', 'Logout']; //'Account'
 const pageRoutes = {
     'Home': '/',
     'Services': '/services',
-    'Book now': '/book-now',
-    'Shop': '/purchase',
-}
+    'Book now': '/book-now'    
+} //'Shop': '/purchase',
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -39,17 +38,16 @@ function ResponsiveAppBar() {
 
   const handleMenuClick = (setting) => {
     if (setting === "Logout") {
-      handleLogout();
-    } else if (setting === "Profile") {
-      navigate('/profile'); 
+      handleLogout();    
     } else if (setting === "Dashboard" && !isUser) {
       const adminUrl = process.env.REACT_APP_ADMIN_URL || "http://localhost:5001/admin";
       window.open(`${adminUrl}/#/dashboard`);
     } 
   };
-  
-  
 
+  // else if (setting === "Profile") {
+  //   navigate('/profile'); 
+  
   // check login status
   useEffect(() => {
     const username = localStorage.getItem("username");
