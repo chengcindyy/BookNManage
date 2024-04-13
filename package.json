@@ -5,8 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node App.js",
-    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client && npm install --prefix admin && npm run build --prefix admin",
+    "start": "node App.js",    
     "test": "echo \"Error: no test specified\" && exit 1",
     "backend": "nodemon ./App.js",
     "frontend": "npm start --prefix client",
