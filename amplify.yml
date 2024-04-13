@@ -3,11 +3,13 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm install
+        - npm install --prefix client
+        - npm install --prefix admin
     build:
       commands:
-        - npm run build
+        - npm run build --prefix client
+        - npm run build --prefix admin
   artifacts:
-    baseDirectory: build
+    baseDirectory: client/build
     files:
       - '**/*'
